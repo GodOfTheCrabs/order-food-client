@@ -1,0 +1,100 @@
+.foods {
+    margin-top: 100px;
+}
+.food-title {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.foods-list {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.btn-clear {
+    padding: 5px 20px;
+    background-color: #F3F4F9;
+    border: none;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.btn-clear:hover {
+    background-color: #bbbbbe;
+}
+.btn-clear i {
+    font-size: 10px;
+    padding: 6px 7px;
+    margin-left: 5px;
+    color: white;
+    background-color: #F04642;
+    border-radius: 50%;
+}
+.filter-block {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 250px;
+  font-size: 14px;
+}
+.sort-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sort-options {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.sort-option {
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.sort-option.active {
+  font-weight: bold;
+}
+
+.sort-option i {
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.sort-option:hover {
+  color: #007bff;
+}
+
+.sort-option i {
+  transition: transform 0.3s ease;
+}
+
+.sort-option.active i {
+  transform: rotate(180deg);
+}
+
+.price-filter {
+  display: flex;
+  gap: 10px;
+}
+
+.price-input {
+  padding: 8px;
+  height: 45px;
+  font-size: 14px;
+  width: 100px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}

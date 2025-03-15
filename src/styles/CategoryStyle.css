@@ -1,0 +1,50 @@
+.categories-title {
+    padding-top: 5px;
+}
+.category {
+    display: flex;
+    justify-content: space-between;
+}
+.categories-list {
+    margin-top: 20px;
+    overflow: hidden; 
+    position: relative;
+    width: 1150px;
+}
+
+.categories-slider {
+    display: flex;
+    flex-shrink: 0;
+    gap: 20px;
+    transition: transform 0.5s ease; 
+}
+.category-item {
+    width: 210px !important;
+    height: 175px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px 0 0 20px;
+    border-radius: 10%;
+    color: white;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+.category-switch {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.category-switch div {
+    width: 50px;
+    height: 50px;
+    background-color: #D4D5DD;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+.category-switch div:hover {
+    opacity: 0.8;
+}

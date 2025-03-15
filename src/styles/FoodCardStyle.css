@@ -1,0 +1,50 @@
+.food-item {
+    width: 270px;
+    position: relative;
+}
+.food-item .food-name {
+    font-size: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    color: black;
+    text-decoration: none;
+}
+.food-item .food-name:hover {
+    text-decoration: underline;
+}
+.food-item .food-price {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+.food-item .food-img {
+    width: 100%; 
+    height: 220px; 
+    border-radius: 10%;
+    object-fit: cover; 
+    display: block; 
+}
+.food-item .plus-counter {
+    top: 58%;
+    right: 5px;
+    box-sizing: border-box;
+    border: 2px solid #2458D3;
+    color: #2458D3;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.food-item .plus-counter:hover {
+    background-color: #2458D3;
+    color: white;
+}
+.food-card i {
+    color: #2458D3;
+}

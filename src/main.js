@@ -2,6 +2,8 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia';
 import App from './App.vue'
 import axios from 'axios';
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap';
@@ -18,5 +20,6 @@ pinia.use(piniaPersistedstate);
 app.config.globalProperties.$axios = axios;
 
 app.use(pinia);
-app.use(router); 
+app.use(router);
+app.use(ElementPlus);
 app.mount('#app');

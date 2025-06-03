@@ -45,7 +45,7 @@
                 <button @click="goToProfile">
                     Особистий кабінет <i class="fa-solid fa-angle-right"></i>
                 </button>
-                <button>
+                <button @click="goToOrdersHistory">
                     Історія заказів <i class="fa-solid fa-angle-right"></i>
                 </button>
                 <button class="logout" @click="handleLogout">
@@ -161,6 +161,11 @@ import { logout } from '../../../api/auth.js';
                 router.push('/profile')
             }
 
+            const goToOrdersHistory = () => {
+              isListActive.value = false;
+              router.push('/profile/history')
+            }
+
             const goToBasket = () => {
                 const cart = JSON.parse(localStorage.getItem('cart')) || [];
                 console.log(cart);
@@ -187,6 +192,7 @@ import { logout } from '../../../api/auth.js';
             return {
                 isVisibleLogin,
                 goToProfile,
+                goToOrdersHistory,
                 isAuthenticated,
                 isListActive,
                 showProfileList,

@@ -1,8 +1,8 @@
 <template>
   <div class="main-page">
     <Category/>
-    <OrderedFoods v-if="authToken"/>
     <Foods/>
+    <OrderedFoods v-if="authToken"/>
   </div>
 </template>
 

@@ -6,7 +6,7 @@
                 Очистити категорію <i class="fa-solid fa-x"></i>
             </button>
         </div>
-        <div class="filter-block">
+        <div class="filter-block-food">
             <input
                 type="text"
                 v-model="searchQuery"

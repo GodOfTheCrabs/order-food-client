@@ -5,6 +5,7 @@ import Profile from "@/components/user/Profile.vue";
 import ProfileEdit from "@/components/user/ProfileEdit.vue";
 import Basket from "@/components/basket/Basket.vue";
 import BasketProducts from "@/components/basket/BasketProducts.vue";
+import OrdersHistory from "@/components/history/OrdersHistory.vue";
 import NotFound from "@/components/view/NotFound.vue";
 
 const routes = [
@@ -22,6 +23,12 @@ const routes = [
         path: '/profile',
         name: 'Profile',
         component: Profile,
+        meta: { requiresAuth: true }
+    },
+    {
+        path: '/profile/history',
+        name: 'OrdersHistory',
+        component: OrdersHistory,
         meta: { requiresAuth: true }
     },
     {

@@ -1,0 +1,125 @@
+.analytics-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+
+.analytics-h2 {
+    margin-bottom: 16px;
+    color: #333;
+}
+
+.analytics-category-item {
+    margin-bottom: 12px;
+}
+
+.analytics-label-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.analytics-progress-bar {
+    height: 10px;
+    background-color: #eee;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.analytics-progress-fill {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.analytics-stats-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.analytics-stat-block {
+    flex: 1 1 45%;
+    padding: 12px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.analytics-stat-value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2458D3;
+}
+
+.analytics-stat-label {
+    font-size: 13px;
+    color: #666;
+}
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.analytics-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 16px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.analytics-category-name {
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+.analytics-category-amount {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+.analytics-circle-progress-wrapper {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.analytics-circular-chart {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 100%;
+    transform: rotate(-90deg);
+}
+
+.analytics-circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+}
+
+.analytics-circle {
+    fill: none;
+    stroke-width: 3.8;
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.3s ease;
+}
+
+.analytics-percentage-text {
+    fill: #333;
+    font-size: 8px;
+    text-anchor: middle;
+    transform: rotate(90deg);
+    transform-origin: center;
+}

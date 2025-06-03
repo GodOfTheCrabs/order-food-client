@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="food-component">
-            <img :src="`http://127.0.0.1:8000${food.image}`" class="img-food">
+            <img :src="`http://localhost:3010${food.image}`" class="img-food">
             <div class="food-desc">   
                 <p class="title">{{ food.name }}</p>
                 <p class="category">Категорія: {{ food.category }}</p>

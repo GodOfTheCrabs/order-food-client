@@ -6,7 +6,7 @@
                 :key="food.id"
             >
                 <template #image>
-                    <img :src="`http://127.0.0.1:8000${food.image}`" class="food-img" />
+                    <img :src="`http://localhost:3010${food.image}`" class="food-img" />
                     <div class="counter" v-if="food.showCounter" >
                         <button class="minus" @click="decrement(food)">-</button>
                         <p>{{ food.count }} шт.</p>

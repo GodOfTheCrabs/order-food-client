@@ -17,7 +17,7 @@
                     v-for="category in categories"
                     :key="category.id"
                     class="category-item"
-                    :style="{ backgroundImage: `url(http://127.0.0.1:8000${category.image})` }"
+                    :style="{ backgroundImage: `url(http://localhost:3010${category.image})` }"
                     @click="searchByCategory(category.name)"
                 >
                     {{ category.name }}

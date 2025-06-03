@@ -10,7 +10,7 @@
             <div class="basket-product-block">
                 <div class="product-block" v-for="food in foodsInCart" :key="food.id">
                     <div>
-                        <img :src="`http://127.0.0.1:8000${food.image}`" class="img-product">
+                        <img :src="`http://localhost:3010${food.image}`" class="img-product">
                         <h6>{{ food.name }}</h6>
                     </div>
                     <div class="counter">

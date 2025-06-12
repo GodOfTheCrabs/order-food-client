@@ -95,5 +95,5 @@ function formatCurrency(value) {
 </script>
 
 <style scoped>
-  @import url('../../styles/AnalyticsBlock.css');
+@import url('../../styles/AnalyticsBlock.css');
 </style>

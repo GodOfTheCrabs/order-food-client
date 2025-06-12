@@ -12,27 +12,26 @@ export const useUserStore = defineStore('user', {
     actions: {
         async updateUserProfile(userData) {
             try {
+                console.log(userData);
+                const response = await axiosInstance.put('/update', {
+                    first_name: userData?.first_name,
+                    last_name: userData?.last_name,
+                    email: userData?.email,
+                    phone: userData?.phone,
+                    gender: userData?.gender,
+                    is_manage_finances: userData?.is_manage_finances,
+                    daily_limit: userData?.daily_limit,
+                    monthly_limit: userData?.monthly_limit,
+                });
 
-                const formData = new FormData();
-
-                formData.append('first_name', userData.first_name);
-                formData.append('last_name', userData.last_name);
-                formData.append('email', userData.email);
-                formData.append('phone', userData.phone);
-                formData.append('gender', userData.gender);
-
-                if (userData.photo) {
-                    formData.append('photo', userData.photo);
-                }
-                const response = await axiosInstance.put('/update', userData, 'test.jpg');
-                if (response.status === 201) {
+                if (response.status === 200 || response.status === 201) {
                     alert('Успішно оновлено профіль!');
                 }
             } catch (error) {
-                this.error = error.message || "Ошибка при изминении профеля";
-                console.error('Ошибка при изминении профеля:', error);
-                alert('Произошла ошибка. Пожалуйста, попробуйте снова.');
-                throw error; 
+                this.error = error?.response?.data?.message || "Помилка при оновленні профілю";
+                console.error('Помилка при оновленні профілю:', error);
+                alert('Сталася помилка. Спробуйте ще раз.');
+                throw error;
             }
         },
         async getUser() {

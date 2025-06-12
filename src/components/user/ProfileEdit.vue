@@ -90,7 +90,7 @@
                             type="submit"
                             class="btn btn-primary"
                         >
-                            Сохранить изменения
+                          Зберегти зміни
                         </button>
                     </div>
                 </div>
@@ -139,36 +139,32 @@ export default {
     };
 
     const handleFileUpload = (event) => {
-        const file = event.target.files[0];  
+        const file = event.target.files[0];
         if (file) {
             photo.value = file;
-            
-            previewPhoto.value = URL.createObjectURL(file); 
+
+            previewPhoto.value = URL.createObjectURL(file);
         }
         console.log(file)
     };
-    
+
     const handleUpdate = async () => {
-    try {
-
-        // Отправка других данных
+      try {
         const data = {
-            first_name: firstName.value,
-            last_name: lastName.value,
-            email: email.value,
-            phone: phone.value,
-            gender: gender.value,
-            photo: photo.value
+          first_name: firstName.value,
+          last_name: lastName.value,
+          email: email.value,
+          phone: phone.value,
+          gender: gender.value,
         };
-        console.log(data);
-        await userStore.updateUserProfile(data);
 
+        await userStore.updateUserProfile(data);
         router.push('/profile');
-    } catch (error) {
-        errorMessage.value = error.response?.data?.message || 'Ошибка при обновлении профиля. Пожалуйста, попробуйте позже.';
-        console.error('Ошибка при обновлении профиля:', error);
-    }
-};
+      } catch (error) {
+        errorMessage.value = error?.response?.data?.message || 'Помилка при оновленні профілю. Спробуйте пізніше.';
+        console.error('Помилка при оновленні профілю:', error);
+      }
+    };
 
     onMounted(() => {
       fetchUserData();

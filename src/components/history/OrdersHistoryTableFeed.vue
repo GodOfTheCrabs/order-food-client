@@ -62,8 +62,8 @@
                   <th>Блюдо</th>
                   <th>Категорія</th>
                   <th>Кількість</th>
-                  <th>Ціна за од.</th>
-                  <th>Разом</th>
+                  <th>КБЖВ на 1 од.</th>
+                  <th>КБЖВ всього</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -71,8 +71,18 @@
                   <td>{{ item.name }}</td>
                   <td>{{ item.category }}</td>
                   <td>{{ item.count }}</td>
-                  <td>{{ item.price }} ₴</td>
-                  <td>{{ item.price * item.count }} ₴</td>
+                  <td>
+                    Вугл: {{ item.nutrition.carbs }}г,<br>
+                    Біл: {{ item.nutrition.proteins }}г,<br>
+                    Жири: {{ item.nutrition.fats }}г,<br>
+                    Кал: {{ item.nutrition.calories }} ккал
+                  </td>
+                  <td>
+                    Вугл: {{ item.nutrition.carbs * item.count }}г,<br>
+                    Біл: {{ item.nutrition.proteins * item.count }}г,<br>
+                    Жири: {{ item.nutrition.fats * item.count }}г,<br>
+                    Кал: {{ item.nutrition.calories * item.count }} ккал
+                  </td>
                 </tr>
                 </tbody>
               </table>
@@ -129,13 +139,13 @@
         :analytics="orderStore.analytics"
     />
     <ModalWindowConfirm
-      :open="isOpenModalWindow"
-      title="Експорт заказів"
-      description="Після підтвердження буде створено Excel-файл із поточними замовленнями згідно з фільтрами"
-      action="Експортувати"
-      cancel="Скасувати"
-      @confirm="exportOrders()"
-      @cancel="isOpenModalWindow = false"
+        :open="isOpenModalWindow"
+        title="Експорт заказів"
+        description="Після підтвердження буде створено Excel-файл із поточними замовленнями згідно з фільтрами"
+        action="Експортувати"
+        cancel="Скасувати"
+        @confirm="exportOrders()"
+        @cancel="isOpenModalWindow = false"
     />
   </div>
 </template>
@@ -148,9 +158,248 @@ import ModalWindowConfirm from "@/components/layout/ModalWindowConfirm.vue";
 
 const orderStore = useOrderStore();
 
-const orders = computed(() => {
-  return orderStore.orders
-})
+const orders = ref([
+  {
+    id: 1,
+    date: '2025-06-01',
+    price: 250,
+    foods: [
+      {
+        id: 101,
+        name: 'Куряче філе з овочами',
+        category: 'Основна страва',
+        count: 2,
+        price: 125,
+        nutrition: {
+          carbs: 10,
+          proteins: 30,
+          fats: 5,
+          calories: 250,
+        },
+      },
+    ],
+  },
+  {
+    id: 2,
+    date: '2025-06-02',
+    price: 180,
+    foods: [
+      {
+        id: 102,
+        name: 'Гречка з грибами',
+        category: 'Гарнір',
+        count: 1,
+        price: 80,
+        nutrition: {
+          carbs: 25,
+          proteins: 7,
+          fats: 3,
+          calories: 180,
+        },
+      },
+      {
+        id: 103,
+        name: 'Овочевий салат',
+        category: 'Салат',
+        count: 1,
+        price: 100,
+        nutrition: {
+          carbs: 12,
+          proteins: 2,
+          fats: 5,
+          calories: 120,
+        },
+      },
+    ],
+  },
+  {
+    id: 3,
+    date: '2025-06-03',
+    price: 300,
+    foods: [
+      {
+        id: 104,
+        name: 'Свинячий стейк',
+        category: 'Основна страва',
+        count: 2,
+        price: 150,
+        nutrition: {
+          carbs: 2,
+          proteins: 35,
+          fats: 20,
+          calories: 350,
+        },
+      },
+    ],
+  },
+  {
+    id: 4,
+    date: '2025-06-04',
+    price: 220,
+    foods: [
+      {
+        id: 105,
+        name: 'Паста з томатним соусом',
+        category: 'Гарнір',
+        count: 2,
+        price: 110,
+        nutrition: {
+          carbs: 40,
+          proteins: 10,
+          fats: 8,
+          calories: 320,
+        },
+      },
+    ],
+  },
+  {
+    id: 5,
+    date: '2025-06-05',
+    price: 270,
+    foods: [
+      {
+        id: 106,
+        name: 'Суп-пюре з броколі',
+        category: 'Перша страва',
+        count: 1,
+        price: 90,
+        nutrition: {
+          carbs: 15,
+          proteins: 5,
+          fats: 4,
+          calories: 120,
+        },
+      },
+      {
+        id: 107,
+        name: 'Котлета з індички',
+        category: 'Основна страва',
+        count: 2,
+        price: 90,
+        nutrition: {
+          carbs: 3,
+          proteins: 28,
+          fats: 6,
+          calories: 220,
+        },
+      },
+    ],
+  },
+  {
+    id: 6,
+    date: '2025-06-06',
+    price: 210,
+    foods: [
+      {
+        id: 108,
+        name: 'Рис з овочами',
+        category: 'Гарнір',
+        count: 2,
+        price: 105,
+        nutrition: {
+          carbs: 35,
+          proteins: 6,
+          fats: 3,
+          calories: 200,
+        },
+      },
+    ],
+  },
+  {
+    id: 7,
+    date: '2025-06-07',
+    price: 195,
+    foods: [
+      {
+        id: 109,
+        name: 'Печена картопля',
+        category: 'Гарнір',
+        count: 1,
+        price: 65,
+        nutrition: {
+          carbs: 30,
+          proteins: 4,
+          fats: 6,
+          calories: 180,
+        },
+      },
+      {
+        id: 110,
+        name: 'Курячі нагетси',
+        category: 'Основна страва',
+        count: 1,
+        price: 130,
+        nutrition: {
+          carbs: 10,
+          proteins: 20,
+          fats: 15,
+          calories: 260,
+        },
+      },
+    ],
+  },
+  {
+    id: 8,
+    date: '2025-06-08',
+    price: 160,
+    foods: [
+      {
+        id: 111,
+        name: 'Овочевий крем-суп',
+        category: 'Перша страва',
+        count: 2,
+        price: 80,
+        nutrition: {
+          carbs: 20,
+          proteins: 4,
+          fats: 5,
+          calories: 150,
+        },
+      },
+    ],
+  },
+  {
+    id: 9,
+    date: '2025-06-09',
+    price: 240,
+    foods: [
+      {
+        id: 112,
+        name: 'Яловичина в соусі',
+        category: 'Основна страва',
+        count: 2,
+        price: 120,
+        nutrition: {
+          carbs: 5,
+          proteins: 32,
+          fats: 18,
+          calories: 340,
+        },
+      },
+    ],
+  },
+  {
+    id: 10,
+    date: '2025-06-10',
+    price: 200,
+    foods: [
+      {
+        id: 113,
+        name: 'Рататуй',
+        category: 'Овочева страва',
+        count: 2,
+        price: 100,
+        nutrition: {
+          carbs: 15,
+          proteins: 4,
+          fats: 6,
+          calories: 160,
+        },
+      },
+    ],
+  },
+])
+
 
 // PAGINATION
 const perPage = ref(10)

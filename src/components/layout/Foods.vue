@@ -54,6 +54,10 @@
             </div>
         </div>
         <Pagination :items="filteredFoods"/>
+        <ModalWindowRecommendation
+            :open="modalWindow"
+            @confirm="modalWindow = false"
+        />
     </div>
 </template>
 
@@ -62,13 +66,16 @@ import { useFoodStore } from '../../store/FoodStore.js';
 import { useCategoryStore } from '@/store/CategoryStore.js';
 import { onMounted, computed, ref} from 'vue';
 import Pagination from '../layout/Pagination.vue';
+import ModalWindowRecommendation from "@/components/layout/ModalWindowRecommendation.vue";
 
 export default {
   name: 'Food',
   components: {
+    ModalWindowRecommendation,
     Pagination
   },
   setup() {
+    const modalWindow = ref(true);
     const foodStore = useFoodStore();
     const categoryStore = useCategoryStore();
     const selectedCategory = computed(() => categoryStore.selectedCategory)
@@ -145,7 +152,8 @@ export default {
       setSortType,
       toggleSortDirection,
       minPrice,
-      maxPrice
+      maxPrice,
+      modalWindow
     };
   },
 };

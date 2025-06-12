@@ -10,7 +10,7 @@
             <div class="basket-product-block">
                 <div class="product-block" v-for="food in foodsInCart" :key="food.id">
                     <div>
-                        <img :src="`http://localhost:3010${food.image}`" class="img-product">
+                        <img :src="`http://127.0.0.1:8000${food.image}`" class="img-product">
                         <h6>{{ food.name }}</h6>
                     </div>
                     <div class="counter">
@@ -51,11 +51,11 @@
                 </div>
                 <div class="price-items" v-if="trackOrder">
                     <p>Час на приготування:</p>
-                    <p class="price-order">{{preparationTime}} сек.</p>
+                    <p class="price-order">{{preparationTime}} хв.</p>
                 </div>
                 <div class="price-items" v-if="trackOrder">
                     <p>Час на доставку:</p>
-                    <p class="price-order">{{deliveryTime}} сек.</p>
+                    <p class="price-order">{{deliveryTime}} хв.</p>
                 </div>
                 <div class="price-items" style="justify-content: center; border: none;">
                     <button class="btn-order" @click="placeOrder">
@@ -65,6 +65,10 @@
             </div>  
         </div>
         <Category/>
+        <ModalWindowFinances
+          :open="modalWindow"
+          @confirm="modalWindow = false"
+        />
     </div>    
 </template>
 
@@ -75,9 +79,11 @@
     import { useRouter } from 'vue-router';
     import { useOrderStore } from "../../store/OrderStore.js"
     import { onMounted, ref } from 'vue';
+import ModalWindowFinances from "@/components/layout/ModalWindowFinances.vue";
     export default {
         name: 'Basket',
         components: {
+          ModalWindowFinances,
             Category
         },
         setup() {
@@ -87,6 +93,7 @@
             const trackOrder = ref(false);
             const router = useRouter()
             const orderStore = useOrderStore();
+            const modalWindow = ref(true);
 
             const preparationTime = ref(0);
             const deliveryTime = ref(0);
@@ -216,6 +223,7 @@
                 preparationTime,
                 deliveryTime,
                 trackOrder,
+                modalWindow,
                 timeBlock
             };
         }

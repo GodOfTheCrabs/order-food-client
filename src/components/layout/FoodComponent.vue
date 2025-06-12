@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="food-component">
-            <img :src="`http://localhost:3010${food.image}`" class="img-food">
+            <img :src="`http://127.0.0.1:8000${food.image}`" class="img-food">
             <div class="food-desc">   
                 <p class="title">{{ food.name }}</p>
                 <p class="category">Категорія: {{ food.category }}</p>
@@ -34,7 +34,11 @@
                         <p class="rating-value">{{ food.rating }}/5</p>
                     </div>
                 </div>
-                <p class="recipe"> Склад: {{ food.recipe }}</p>
+                <p class="recipe">Склад: булочка з цільнозернового борошна, котлета з нуту, листя салату, помідор, веганський соус, червона цибуля.</p>
+                <p> Калорійність: ~420 ккал</p>
+                <p> Білки: 17 г</p>
+                <p> Жири: 14 г</p>
+                <p> Вуглеводи: 45 г</p>
             </div>
            
         </div>
@@ -71,9 +75,9 @@
 <script>
 /* eslint-disable */
     import { useFoodStore } from '@/store/FoodStore';
-    import { useCommentStore } from "../../store/CommentStore.js"
-    import { useRatingStore } from '../../store/RatingStore';
-    import { useUserStore } from '../../store/UserStore';
+    import { useCommentStore } from "@/store/CommentStore"
+    import { useRatingStore } from '@/store/RatingStore';
+    import { useUserStore } from '@/store/UserStore';
     import { computed, onMounted, ref } from 'vue';
 
     export default {

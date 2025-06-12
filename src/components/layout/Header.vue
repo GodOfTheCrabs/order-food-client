@@ -10,22 +10,22 @@
         <div class="header-user">
             <button class="user-basket" @click="showOrderList" v-if="isOrderButton" style="margin-right: 50px;">
                 <i class="fa-solid fa-cubes"></i>
-                Відслюдковувати замовлення
+                Відслідковувати замовлення
             </button>
             <div class="list order-list" v-if="isOrderList"  :class="{active : isListOrderActive}">
                 <template v-for="(order, index) in orderTimes">
                     <h6>Замовлення #{{ index + 1 }}</h6>
                     <p>
-                        Час приготування: {{ order.preparation_time }} сек
+                        Час приготування: {{ order.preparation_time }} хв.
                     </p>
                     <p>
-                        Час доставки: {{ order.delivery_time }} сек
+                        Час доставки: {{ order.delivery_time }} хв.
                     </p>
                     <p>
-                        Повний час: {{ order.preparation_time + order.delivery_time}} сек
+                        Повний час: {{ order.preparation_time + order.delivery_time}} хв.
                     </p>
                     <p style="color: #2458D3;">
-                        Скільки часу пройшло: {{ timers[index] || '00:00' }}
+                        Скільки часу пройшло: {{ timers[index] || '00:41' }}
                     </p>
                     <button v-if="getTimeInSeconds(timers[index]) >= maxTime[index] / 1000" @click="resetOrder(index)" class="user-profile" >
                         Пітвердити замовлення

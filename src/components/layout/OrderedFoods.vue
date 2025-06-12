@@ -18,7 +18,7 @@
                   :key="food.id"
                 >
                   <template #image>
-                      <img :src="`http://localhost:3010${food.image}`" class="food-img" />
+                      <img :src="`http://127.0.0.1:8000${food.image}`" class="food-img" />
                   </template>
                   <template #price>
                       <p class="food-price">{{ food.price }} ГРН</p>                   
